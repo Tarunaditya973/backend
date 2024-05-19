@@ -10,7 +10,7 @@ const threadRoutes = require("./routes/thread.route");
 const postRoutes = require("./routes/post.route");
 dbConnection();
 const corsOptions = {
-  origin: "*",
+  origin: "https://frontend-beta-jade-56.vercel.app",
   credentials: true,
 };
 app.use(cors(corsOptions));
