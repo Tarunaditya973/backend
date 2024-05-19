@@ -10,7 +10,7 @@ const threadRoutes = require("./routes/thread.route");
 const postRoutes = require("./routes/post.route");
 dbConnection();
 const corsOptions = {
-  origin: "http://localhost:3000", // Explicitly specify your client URL
+  origin: "*",
   credentials: true,
 };
 app.use(cors(corsOptions));
