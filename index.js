@@ -14,6 +14,10 @@ dbConnection();
 const corsOptions = {
   origin: "https://frontend-beta-jade-56.vercel.app",
   credentials: true,
+  allowedHeaders: ["*"],
+  allowOrigins: ["https://frontend-beta-jade-56.vercel.app"],
+  allowCredentials: true,
+  allowMethods: ["*"],
 };
 
 app.use(cors(corsOptions));
