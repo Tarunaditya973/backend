@@ -20,7 +20,9 @@ dbConnection();
 // app.use(express.json());
 // app.use(cookieParser());
 
-
+app.get("/",(req,res) => {
+  res.send("hello")
+})
 // app.use("/api/auth", userRoutes);
 // app.use("/api/thread", verifyToken, threadRoutes);
 // app.use("/api/post", verifyToken, postRoutes);
