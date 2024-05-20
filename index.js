@@ -13,10 +13,9 @@ const corsOptions = {
   origin: "https://frontend-beta-jade-56.vercel.app",
   credentials: true,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: "Content-Type,Authorization",
 };
 
-app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api/auth", userRoutes);
