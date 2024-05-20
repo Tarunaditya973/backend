@@ -1,13 +1,13 @@
 const express = require("express");
 const app = express();
 require("dotenv").config();
-const dbConnection = require("../DB/dbConnection");
-const cors = require("cors");
-const userRoutes = require("../routes/user.route");
-const cookieParser = require("cookie-parser");
-const verifyToken = require("../middleware/verifyToken");
-const threadRoutes = require("../routes/thread.route");
-const postRoutes = require("../routes/post.route");
+// const dbConnection = require("../DB/dbConnection");
+// const cors = require("cors");
+// const userRoutes = require("../routes/user.route");
+// const cookieParser = require("cookie-parser");
+// const verifyToken = require("../middleware/verifyToken");
+// const threadRoutes = require("../routes/thread.route");
+// const postRoutes = require("../routes/post.route");
 
 // dbConnection();
 
@@ -20,9 +20,9 @@ const postRoutes = require("../routes/post.route");
 // app.use(express.json());
 // app.use(cookieParser());
 
-app.get("/",(req,res) => {
-  res.send("hello")
-})
+// app.get("/", (req, res) => {
+//   res.send("hello");
+// });
 // app.use("/api/auth", userRoutes);
 // app.use("/api/thread", verifyToken, threadRoutes);
 // app.use("/api/post", verifyToken, postRoutes);
