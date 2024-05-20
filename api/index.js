@@ -9,7 +9,7 @@ const verifyToken = require("../middleware/verifyToken");
 const threadRoutes = require("../routes/thread.route");
 const postRoutes = require("../routes/post.route");
 
-dbConnection();
+// dbConnection();
 
 // const corsOptions = {
 //   origin: "https://frontend-beta-jade-56.vercel.app",
