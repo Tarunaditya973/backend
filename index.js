@@ -14,16 +14,15 @@ dbConnection();
 const corsOptions = {
   origin: "https://frontend-beta-jade-56.vercel.app",
   credentials: true,
-  allowedHeaders: ["*"],
-  allowOrigins: ["https://frontend-beta-jade-56.vercel.app"],
-  allowCredentials: true,
-  allowMethods: ["*"],
 };
 
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
+app.get("/", (req,res) => {
+  res.send("Hello")
+})
 app.use("/api/auth", userRoutes);
 app.use("/api/thread", verifyToken, threadRoutes);
 app.use("/api/post", verifyToken, postRoutes);
