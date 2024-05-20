@@ -22,9 +22,6 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
-// Handle preflight requests
-app.options("*", cors(corsOptions));
-
 app.use("/api/auth", userRoutes);
 app.use("/api/thread", verifyToken, threadRoutes);
 app.use("/api/post", verifyToken, postRoutes);
@@ -32,5 +29,3 @@ app.use("/api/post", verifyToken, postRoutes);
 app.listen(process.env.PORT, () => {
   console.log(`App listening on port ${process.env.PORT}`);
 });
-
-module.exports = app;
