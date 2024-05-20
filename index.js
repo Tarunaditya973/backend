@@ -31,7 +31,9 @@ app.use((req, res, next) => {
   console.log("Headers:", req.headers);
   next();
 });
-
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 app.use("/api/auth", userRoutes);
 app.use("/api/thread", verifyToken, threadRoutes);
 app.use("/api/post", verifyToken, postRoutes);
