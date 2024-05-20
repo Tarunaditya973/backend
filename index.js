@@ -25,15 +25,6 @@ app.use(cookieParser());
 // Handle preflight requests
 app.options("*", cors(corsOptions));
 
-// Log incoming requests for debugging
-app.use((req, res, next) => {
-  console.log("Incoming request:", req.method, req.url);
-  console.log("Headers:", req.headers);
-  next();
-});
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
 app.use("/api/auth", userRoutes);
 app.use("/api/thread", verifyToken, threadRoutes);
 app.use("/api/post", verifyToken, postRoutes);
