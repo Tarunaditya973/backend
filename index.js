@@ -8,16 +8,30 @@ const cookieParser = require("cookie-parser");
 const verifyToken = require("./middleware/verifyToken");
 const threadRoutes = require("./routes/thread.route");
 const postRoutes = require("./routes/post.route");
+
 dbConnection();
+
 const corsOptions = {
   origin: "https://frontend-beta-jade-56.vercel.app",
   credentials: true,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: "Content-Type,Authorization",
 };
 
-app.options("*", cors(corsOptions));
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
+
+// Handle preflight requests
+app.options("*", cors(corsOptions));
+
+// Log incoming requests for debugging
+app.use((req, res, next) => {
+  console.log("Incoming request:", req.method, req.url);
+  console.log("Headers:", req.headers);
+  next();
+});
+
 app.use("/api/auth", userRoutes);
 app.use("/api/thread", verifyToken, threadRoutes);
 app.use("/api/post", verifyToken, postRoutes);
